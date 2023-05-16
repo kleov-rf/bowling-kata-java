@@ -35,6 +35,16 @@ public class BowlingGameShould {
         );
     }
 
+    private static Stream<Arguments> casesForSecondFrameOnlyRecord() {
+        String gameRecordFormat = "|--|--|--|--|--|--|--|--|--||";
+        return Stream.of(
+                Arguments.of("--|12" + gameRecordFormat, 3),
+                Arguments.of("--|45" + gameRecordFormat, 9),
+                Arguments.of("--|-/" + gameRecordFormat, 10),
+                Arguments.of("--|X" + gameRecordFormat, 10)
+        );
+    }
+
     @Test
     void return_0_when_given_no_strikes_game() {
         String gameRecord = "--|--|--|--|--|--|--|--|--|--||";
@@ -79,41 +89,9 @@ public class BowlingGameShould {
         assertEquals(expectedScore, score);
     }
 
-    @Test
-    void return_3_when_rolling_1_and_2_in_second_frame() {
-        String gameRecord = "--|12|--|--|--|--|--|--|--|--||";
-        int expectedScore = 3;
-
-        int score = BowlingGame.calculateGameScore(gameRecord);
-
-        assertEquals(expectedScore, score);
-    }
-
-    @Test
-    void return_9_when_rolling_4_and_5_in_second_frame() {
-        String gameRecord = "--|45|--|--|--|--|--|--|--|--||";
-        int expectedScore = 9;
-
-        int score = BowlingGame.calculateGameScore(gameRecord);
-
-        assertEquals(expectedScore, score);
-    }
-
-    @Test
-    void return_10_when_rolling_a_spare_in_second_frame() {
-        String gameRecord = "--|-/|--|--|--|--|--|--|--|--||";
-        int expectedScore = 10;
-
-        int score = BowlingGame.calculateGameScore(gameRecord);
-
-        assertEquals(expectedScore, score);
-    }
-
-    @Test
-    void return_10_when_rolling_a_strike_in_second_frame() {
-        String gameRecord = "--|X|--|--|--|--|--|--|--|--||";
-        int expectedScore = 10;
-
+    @ParameterizedTest
+    @MethodSource("casesForSecondFrameOnlyRecord")
+    void return_score_for_second_frame_only_records(String gameRecord, int expectedScore){
         int score = BowlingGame.calculateGameScore(gameRecord);
 
         assertEquals(expectedScore, score);
