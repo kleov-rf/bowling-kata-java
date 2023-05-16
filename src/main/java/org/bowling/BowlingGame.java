@@ -32,6 +32,10 @@ public class BowlingGame {
             score = 10;
         }
 
+        if(firstFrameFirstRoll.equals("X")){
+            score = 10;
+        }
+
         return score;
     }
 }
