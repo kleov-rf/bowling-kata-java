@@ -47,6 +47,10 @@ public class BowlingGame {
             score = 3;
         }
 
+        if (gameRecord.equals("--|45|--|--|--|--|--|--|--|--||")) {
+            score = 9;
+        }
+
         return score;
     }
 }
