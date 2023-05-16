@@ -31,7 +31,17 @@ public class BowlingGameShould {
 
     @ParameterizedTest
     @MethodSource("casesForSingleFirstRoll")
-    void should_return_1_when_given_one_pin_down_in_all_frames(String gameRecord, int expectedScore) {
+    void should_return_score_of_first_roll(String gameRecord, int expectedScore) {
+        int score = BowlingGame.calculateGameScore(gameRecord);
+
+        assertEquals(expectedScore, score);
+    }
+
+    @Test
+    void should_return_2_when_rolling_1_and_1_in_first_frame(){
+        String gameRecord = "11|--|--|--|--|--|--|--|--|--||";
+        int expectedScore = 2;
+
         int score = BowlingGame.calculateGameScore(gameRecord);
 
         assertEquals(expectedScore, score);
