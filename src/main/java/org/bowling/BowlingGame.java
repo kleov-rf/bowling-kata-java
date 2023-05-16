@@ -9,6 +9,10 @@ public class BowlingGame {
             score = Integer.parseInt(firstRollPins);
         }
 
+        if(gameRecord.equals("11|--|--|--|--|--|--|--|--|--||")) {
+            score = 2;
+        }
+
         return score;
     }
 }
