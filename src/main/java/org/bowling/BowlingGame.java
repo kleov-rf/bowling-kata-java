@@ -3,7 +3,12 @@ package org.bowling;
 public class BowlingGame {
 
     private static boolean isRollNumeric(String roll) {
-        return !(roll.equals("-") || roll.equals("/"));
+        return !(
+                roll.equals("|") ||
+                roll.equals("-") ||
+                roll.equals("/") ||
+                roll.equals("X")
+        );
     }
 
     private static boolean isRollSpare(String roll) {
