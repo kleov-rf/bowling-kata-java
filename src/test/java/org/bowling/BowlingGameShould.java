@@ -36,7 +36,7 @@ public class BowlingGameShould {
     }
 
     @Test
-    void should_return_0_when_given_no_strikes_game() {
+    void return_0_when_given_no_strikes_game() {
         String gameRecord = "--|--|--|--|--|--|--|--|--|--||";
         int expectedScore = 0;
 
@@ -47,7 +47,7 @@ public class BowlingGameShould {
 
     @ParameterizedTest
     @MethodSource("casesForSingleFirstRoll")
-    void should_return_score_of_first_roll(String gameRecord, int expectedScore) {
+    void return_score_of_first_roll(String gameRecord, int expectedScore) {
         int score = BowlingGame.calculateGameScore(gameRecord);
 
         assertEquals(expectedScore, score);
@@ -55,7 +55,7 @@ public class BowlingGameShould {
 
     @ParameterizedTest
     @MethodSource("simpleCasesForFirstFrame")
-    void should_return_2_when_rolling_1_and_1_in_first_frame(String gameRecord, int expectedScore){
+    void return_2_when_rolling_1_and_1_in_first_frame(String gameRecord, int expectedScore){
         int score = BowlingGame.calculateGameScore(gameRecord);
 
         assertEquals(expectedScore, score);
@@ -63,14 +63,14 @@ public class BowlingGameShould {
 
     @ParameterizedTest
     @MethodSource("spareCasesForFirstFrame")
-    void should_return_10_when_rolling_a_spare_on_first_frame(String gameRecord, int expectedScore) {
+    void return_10_when_rolling_a_spare_on_first_frame(String gameRecord, int expectedScore) {
         int score = BowlingGame.calculateGameScore(gameRecord);
 
         assertEquals(expectedScore, score);
     }
 
     @Test
-    void should_return_10_when_rolling_a_strike_on_first_frame() {
+    void return_10_when_rolling_a_strike_on_first_frame() {
         String gameRecord = "X|--|--|--|--|--|--|--|--|--||";
         int expectedScore = 10;
 
