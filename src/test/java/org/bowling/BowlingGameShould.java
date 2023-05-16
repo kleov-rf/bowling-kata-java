@@ -18,6 +18,13 @@ public class BowlingGameShould {
                 Arguments.of("3" + gameRecordFormat, 3)
         );
     }
+    private static Stream<Arguments> simpleCasesForFirstFrame() {
+        String gameRecordFormat = "|--|--|--|--|--|--|--|--|--||";
+        return Stream.of(
+                Arguments.of("11" + gameRecordFormat, 2),
+                Arguments.of("12" + gameRecordFormat, 3)
+        );
+    }
 
     @Test
     void should_return_0_when_given_no_strikes_game() {
@@ -37,21 +44,9 @@ public class BowlingGameShould {
         assertEquals(expectedScore, score);
     }
 
-    @Test
-    void should_return_2_when_rolling_1_and_1_in_first_frame(){
-        String gameRecord = "11|--|--|--|--|--|--|--|--|--||";
-        int expectedScore = 2;
-
-        int score = BowlingGame.calculateGameScore(gameRecord);
-
-        assertEquals(expectedScore, score);
-    }
-
-    @Test
-    void should_return_3_when_rolling_1_and_2_in_first_frame(){
-        String gameRecord = "12|--|--|--|--|--|--|--|--|--||";
-        int expectedScore = 3;
-
+    @ParameterizedTest
+    @MethodSource("simpleCasesForFirstFrame")
+    void should_return_2_when_rolling_1_and_1_in_first_frame(String gameRecord, int expectedScore){
         int score = BowlingGame.calculateGameScore(gameRecord);
 
         assertEquals(expectedScore, score);
