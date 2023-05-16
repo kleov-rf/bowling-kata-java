@@ -37,4 +37,14 @@ public class BowlingGameShould {
         assertEquals(expectedScore, score);
     }
 
+    @Test
+    void should_return_2_when_rolling_1_and_1_in_first_frame(){
+        String gameRecord = "11|--|--|--|--|--|--|--|--|--||";
+        int expectedScore = 2;
+
+        int score = BowlingGame.calculateGameScore(gameRecord);
+
+        assertEquals(expectedScore, score);
+    }
+
 }
