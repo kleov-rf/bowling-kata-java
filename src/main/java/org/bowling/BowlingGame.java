@@ -13,13 +13,7 @@ public class BowlingGame {
             score += Integer.parseInt(firstFrameSecondRoll);
         }
 
-        if(gameRecord.equals("-/|--|--|--|--|--|--|--|--|--||")) {
-            score = 10;
-        }
-        if(gameRecord.equals("7/|--|--|--|--|--|--|--|--|--||")) {
-            score = 10;
-        }
-        if(gameRecord.equals("2/|--|--|--|--|--|--|--|--|--||")) {
+        if(firstFrameSecondRoll.equals("/")) {
             score = 10;
         }
 
