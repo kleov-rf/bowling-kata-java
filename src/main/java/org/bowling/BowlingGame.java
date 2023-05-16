@@ -9,7 +9,7 @@ public class BowlingGame {
         if (!firstFrameFirstRoll.equals("-")) {
             score += Integer.parseInt(firstFrameFirstRoll);
         }
-        if (!firstFrameSecondRoll.equals("-")) {
+        if (!firstFrameSecondRoll.equals("-") && !firstFrameSecondRoll.equals("/")) {
             score += Integer.parseInt(firstFrameSecondRoll);
         }
 
