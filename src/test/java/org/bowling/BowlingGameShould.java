@@ -26,6 +26,15 @@ public class BowlingGameShould {
         );
     }
 
+    private static Stream<Arguments> spareCasesForFirstFrame() {
+        String gameRecordFormat = "/|--|--|--|--|--|--|--|--|--||";
+        return Stream.of(
+                Arguments.of("-" + gameRecordFormat, 10),
+                Arguments.of("7" + gameRecordFormat, 10),
+                Arguments.of("2" + gameRecordFormat, 10)
+        );
+    }
+
     @Test
     void should_return_0_when_given_no_strikes_game() {
         String gameRecord = "--|--|--|--|--|--|--|--|--|--||";
@@ -52,30 +61,9 @@ public class BowlingGameShould {
         assertEquals(expectedScore, score);
     }
 
-    @Test
-    void should_return_10_when_rolling_a_spare_on_first_frame(){
-        String gameRecord = "-/|--|--|--|--|--|--|--|--|--||";
-        int expectedScore = 10;
-
-        int score = BowlingGame.calculateGameScore(gameRecord);
-
-        assertEquals(expectedScore, score);
-    }
-
-    @Test
-    void should_return_10_when_rolling_a_spare_on_first_frame_2nd_case(){
-        String gameRecord = "7/|--|--|--|--|--|--|--|--|--||";
-        int expectedScore = 10;
-
-        int score = BowlingGame.calculateGameScore(gameRecord);
-
-        assertEquals(expectedScore, score);
-    }
-    @Test
-    void should_return_10_when_rolling_a_spare_on_first_frame_3rd_case(){
-        String gameRecord = "2/|--|--|--|--|--|--|--|--|--||";
-        int expectedScore = 10;
-
+    @ParameterizedTest
+    @MethodSource("spareCasesForFirstFrame")
+    void should_return_10_when_rolling_a_spare_on_first_frame(String gameRecord, int expectedScore) {
         int score = BowlingGame.calculateGameScore(gameRecord);
 
         assertEquals(expectedScore, score);
