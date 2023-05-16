@@ -15,6 +15,10 @@ public class BowlingGame {
         return roll.equals("/");
     }
 
+    private static boolean isRollStrike(String roll){
+        return roll.equals("X");
+    }
+
     public static int calculateGameScore(String gameRecord) {
         int score = 0;
 
@@ -32,7 +36,7 @@ public class BowlingGame {
             score = 10;
         }
 
-        if(firstFrameFirstRoll.equals("X")){
+        if(isRollStrike(firstFrameFirstRoll)){
             score = 10;
         }
 
