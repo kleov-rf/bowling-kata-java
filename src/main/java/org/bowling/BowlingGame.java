@@ -43,12 +43,10 @@ public class BowlingGame {
             score = 10;
         }
 
-        if (gameRecord.equals("--|12|--|--|--|--|--|--|--|--||")) {
-            score = 3;
-        }
+        String secondFrame = gameRecord.split("\\|")[1];
 
-        if (gameRecord.equals("--|45|--|--|--|--|--|--|--|--||")) {
-            score = 9;
+        if(secondFrame.length() == 2){
+            score += calculateFrameScore(secondFrame);
         }
 
         return score;
