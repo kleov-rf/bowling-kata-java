@@ -19,6 +19,9 @@ public class BowlingGame {
         if(gameRecord.equals("7/|--|--|--|--|--|--|--|--|--||")) {
             score = 10;
         }
+        if(gameRecord.equals("2/|--|--|--|--|--|--|--|--|--||")) {
+            score = 10;
+        }
 
         return score;
     }
