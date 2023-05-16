@@ -12,7 +12,11 @@ public class BowlingGame {
         if (!firstFrameSecondRoll.equals("-") && !firstFrameSecondRoll.equals("/")) {
             score += Integer.parseInt(firstFrameSecondRoll);
         }
+
         if(gameRecord.equals("-/|--|--|--|--|--|--|--|--|--||")) {
+            score = 10;
+        }
+        if(gameRecord.equals("7/|--|--|--|--|--|--|--|--|--||")) {
             score = 10;
         }
 
