@@ -98,4 +98,14 @@ public class BowlingGameShould {
 
         assertEquals(expectedScore, score);
     }
+
+    @Test
+    void return_10_when_rolling_a_spare_in_second_frame() {
+        String gameRecord = "--|-/|--|--|--|--|--|--|--|--||";
+        int expectedScore = 10;
+
+        int score = BowlingGame.calculateGameScore(gameRecord);
+
+        assertEquals(expectedScore, score);
+    }
 }
