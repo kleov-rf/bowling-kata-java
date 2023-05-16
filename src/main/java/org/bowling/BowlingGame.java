@@ -4,17 +4,13 @@ public class BowlingGame {
     public static int calculateGameScore(String gameRecord) {
         int score = 0;
 
-        String firstRollPins = String.valueOf(gameRecord.toCharArray()[0]);
-        if (!firstRollPins.equals("-")) {
-            score = Integer.parseInt(firstRollPins);
+        String firstFrameFirstRoll = String.valueOf(gameRecord.toCharArray()[0]);
+        String firstFrameSecondRoll = String.valueOf(gameRecord.toCharArray()[1]);
+        if (!firstFrameFirstRoll.equals("-")) {
+            score += Integer.parseInt(firstFrameFirstRoll);
         }
-
-        if(gameRecord.equals("11|--|--|--|--|--|--|--|--|--||")) {
-            score = 2;
-        }
-
-        if(gameRecord.equals("12|--|--|--|--|--|--|--|--|--||")) {
-            score = 3;
+        if (!firstFrameSecondRoll.equals("-")) {
+            score += Integer.parseInt(firstFrameSecondRoll);
         }
 
         return score;
