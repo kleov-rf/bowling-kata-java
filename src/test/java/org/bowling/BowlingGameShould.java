@@ -16,4 +16,14 @@ public class BowlingGameShould {
         assertEquals(expectedScore, score);
     }
 
+    @Test
+    void should_return_1_when_given_one_pin_down_in_all_frames() {
+        String gameRecord = "1-|--|--|--|--|--|--|--|--|--||";
+        int expectedScore = 1;
+
+        int score = BowlingGame.calculateGameScore(gameRecord);
+
+        assertEquals(expectedScore, score);
+    }
+
 }
