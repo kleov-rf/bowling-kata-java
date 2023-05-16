@@ -88,4 +88,14 @@ public class BowlingGameShould {
 
         assertEquals(expectedScore, score);
     }
+
+    @Test
+    void return_9_when_rolling_4_and_5_in_second_frame() {
+        String gameRecord = "--|45|--|--|--|--|--|--|--|--||";
+        int expectedScore = 9;
+
+        int score = BowlingGame.calculateGameScore(gameRecord);
+
+        assertEquals(expectedScore, score);
+    }
 }
