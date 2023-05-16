@@ -53,6 +53,10 @@ public class BowlingGame {
             score = 10;
         }
 
+        if(secondFrame.contains("X")){
+            score = 10;
+        }
+
         return score;
     }
 }
