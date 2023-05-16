@@ -4,39 +4,42 @@ public class BowlingGame {
 
     private static boolean isRollNumeric(String roll) {
         return !(
-                roll.equals("|") ||
                 roll.equals("-") ||
                 roll.equals("/") ||
                 roll.equals("X")
         );
     }
 
-    private static boolean isRollSpare(String roll) {
-        return roll.equals("/");
-    }
+    private static int calculateFrameScore(String frame){
+        int score = 0;
 
-    private static boolean isRollStrike(String roll){
-        return roll.equals("X");
+        String firstRoll = frame.split("")[0];
+        String secondRoll = frame.split("")[1];
+
+        if (isRollNumeric(firstRoll)) {
+            score += Integer.parseInt(firstRoll);
+        }
+        if (isRollNumeric(secondRoll)) {
+            score += Integer.parseInt(secondRoll);
+        }
+
+        return score;
     }
 
     public static int calculateGameScore(String gameRecord) {
         int score = 0;
 
-        String firstFrameFirstRoll = gameRecord.split("")[0];
-        String firstFrameSecondRoll = gameRecord.split("")[1];
+        String firstFrame = gameRecord.split("\\|")[0];
 
-        if (isRollNumeric(firstFrameFirstRoll)) {
-            score += Integer.parseInt(firstFrameFirstRoll);
-        }
-        if (isRollNumeric(firstFrameSecondRoll)) {
-            score += Integer.parseInt(firstFrameSecondRoll);
+        if(firstFrame.length() == 2){
+            score = calculateFrameScore(firstFrame);
         }
 
-        if(isRollSpare(firstFrameSecondRoll)) {
+        if(firstFrame.contains("X")){
             score = 10;
         }
 
-        if(isRollStrike(firstFrameFirstRoll)){
+        if(firstFrame.contains("/")){
             score = 10;
         }
 
