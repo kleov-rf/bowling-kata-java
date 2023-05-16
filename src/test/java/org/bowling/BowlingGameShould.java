@@ -26,4 +26,14 @@ public class BowlingGameShould {
         assertEquals(expectedScore, score);
     }
 
+    @Test
+    void should_return_2_when_given_two_pins_down_in_a_roll() {
+        String gameRecord = "2-|--|--|--|--|--|--|--|--|--||";
+        int expectedScore = 2;
+
+        int score = BowlingGame.calculateGameScore(gameRecord);
+
+        assertEquals(expectedScore, score);
+    }
+
 }
