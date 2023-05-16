@@ -10,6 +10,9 @@ public class BowlingGame {
         if(gameRecord.equals("2-|--|--|--|--|--|--|--|--|--||")){
             score = 2;
         }
+        if(gameRecord.equals("3-|--|--|--|--|--|--|--|--|--||")){
+            score = 3;
+        }
 
         return score;
     }
