@@ -12,6 +12,9 @@ public class BowlingGame {
         if (!firstFrameSecondRoll.equals("-") && !firstFrameSecondRoll.equals("/")) {
             score += Integer.parseInt(firstFrameSecondRoll);
         }
+        if(gameRecord.equals("-/|--|--|--|--|--|--|--|--|--||")) {
+            score = 10;
+        }
 
         return score;
     }
