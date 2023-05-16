@@ -45,8 +45,12 @@ public class BowlingGame {
 
         String secondFrame = gameRecord.split("\\|")[1];
 
-        if(secondFrame.length() == 2){
+        if(secondFrame.length() == 2 && !secondFrame.contains("/")){
             score += calculateFrameScore(secondFrame);
+        }
+
+        if(secondFrame.contains("/")){
+            score = 10;
         }
 
         return score;
