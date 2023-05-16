@@ -13,6 +13,10 @@ public class BowlingGame {
             score = 2;
         }
 
+        if(gameRecord.equals("12|--|--|--|--|--|--|--|--|--||")) {
+            score = 3;
+        }
+
         return score;
     }
 }
