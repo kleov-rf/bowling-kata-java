@@ -4,8 +4,8 @@ public class BowlingGame {
     public static int calculateGameScore(String gameRecord) {
         int score = 0;
 
-        String firstFrameFirstRoll = String.valueOf(gameRecord.toCharArray()[0]);
-        String firstFrameSecondRoll = String.valueOf(gameRecord.toCharArray()[1]);
+        String firstFrameFirstRoll = gameRecord.split("")[0];
+        String firstFrameSecondRoll = gameRecord.split("")[1];
         if (!firstFrameFirstRoll.equals("-")) {
             score += Integer.parseInt(firstFrameFirstRoll);
         }
