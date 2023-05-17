@@ -98,7 +98,7 @@ public class BowlingGameShould {
     }
 
     @Test
-    void return_score_for_first_and_second_frames_special_case_in_second_frame() {
+    void return_score_for_first_and_second_frames_spare_case_in_second_frame() {
         String gameRecord = "12|3/|--|--|--|--|--|--|--|--||";
         int expectedScore = 13;
 
