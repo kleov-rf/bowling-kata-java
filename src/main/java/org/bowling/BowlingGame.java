@@ -63,6 +63,10 @@ public class BowlingGame {
             score += calculateFrameScore(thirdFrame);
         }
 
+        if(thirdFrame.contains("/")){
+            score += 10;
+        }
+
         return score;
     }
 }
