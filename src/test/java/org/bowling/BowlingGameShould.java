@@ -108,6 +108,16 @@ public class BowlingGameShould {
     }
 
     @Test
+    void return_score_for_first_and_second_frames_strike_case_in_second_frame() {
+        String gameRecord = "12|X|--|--|--|--|--|--|--|--||";
+        int expectedScore = 13;
+
+        int score = BowlingGame.calculateGameScore(gameRecord);
+
+        assertEquals(expectedScore, score);
+    }
+
+    @Test
     void return_score_for_first_and_second_and_third_frame_without_special_cases(){
         String gameRecord = "12|34|42|--|--|--|--|--|--|--||";
         int expectedScore = 16;
