@@ -50,7 +50,7 @@ public class BowlingGame {
         }
 
         if(secondFrame.contains("/")){
-            score = 10;
+            score += 10;
         }
 
         if(secondFrame.contains("X")){
