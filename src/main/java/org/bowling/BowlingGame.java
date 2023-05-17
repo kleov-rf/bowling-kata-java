@@ -54,7 +54,7 @@ public class BowlingGame {
         }
 
         if(secondFrame.contains("X")){
-            score = 10;
+            score += 10;
         }
 
         String thirdFrame = gameRecord.split("\\|")[2];
