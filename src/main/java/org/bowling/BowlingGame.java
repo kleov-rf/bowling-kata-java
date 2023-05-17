@@ -1,5 +1,7 @@
 package org.bowling;
 
+import java.util.Arrays;
+
 public class BowlingGame {
 
     private static boolean isRollNumeric(String roll) {
@@ -26,49 +28,31 @@ public class BowlingGame {
         return score;
     }
 
+    private static boolean isFrameSpare(String frame) {
+        return frame.contains("/");
+    }
+
+    private static boolean isFrameStrike(String frame) {
+        return frame.contains("X");
+    }
+
     public static int calculateGameScore(String gameRecord) {
         int score = 0;
 
-        String firstFrame = gameRecord.split("\\|")[0];
+        String[] frames = gameRecord.split("\\|");
 
-        if(firstFrame.length() == 2){
-            score = calculateFrameScore(firstFrame);
-        }
+        for (String frame : frames) {
+            if(frame.length() == 2 && !isFrameSpare(frame)){
+                score += calculateFrameScore(frame);
+            }
 
-        if(firstFrame.contains("X")){
-            score = 10;
-        }
+            if(isFrameSpare(frame)){
+                score += 10;
+            }
 
-        if(firstFrame.contains("/")){
-            score = 10;
-        }
-
-        String secondFrame = gameRecord.split("\\|")[1];
-
-        if(secondFrame.length() == 2 && !secondFrame.contains("/")){
-            score += calculateFrameScore(secondFrame);
-        }
-
-        if(secondFrame.contains("/")){
-            score += 10;
-        }
-
-        if(secondFrame.contains("X")){
-            score += 10;
-        }
-
-        String thirdFrame = gameRecord.split("\\|")[2];
-
-        if(thirdFrame.length() == 2 && !thirdFrame.contains("/")){
-            score += calculateFrameScore(thirdFrame);
-        }
-
-        if(thirdFrame.contains("/")){
-            score += 10;
-        }
-
-        if(thirdFrame.contains("X")){
-            score += 10;
+            if(isFrameStrike(frame)){
+                score += 10;
+            }
         }
 
         return score;
