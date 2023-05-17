@@ -136,4 +136,14 @@ public class BowlingGameShould {
 
         assertEquals(expectedScore, score);
     }
+
+    @Test
+    void return_score_for_first_to_third_frames_strike_case_in_third_frame (){
+        String gameRecord = "12|34|X|--|--|--|--|--|--|--||";
+        int expectedScore = 20;
+
+        int score = BowlingGame.calculateGameScore(gameRecord);
+
+        assertEquals(expectedScore, score);
+    }
 }
