@@ -57,6 +57,12 @@ public class BowlingGame {
             score = 10;
         }
 
+        String thirdFrame = gameRecord.split("\\|")[2];
+
+        if(thirdFrame.length() == 2 && !thirdFrame.contains("/")){
+            score += calculateFrameScore(thirdFrame);
+        }
+
         return score;
     }
 }
